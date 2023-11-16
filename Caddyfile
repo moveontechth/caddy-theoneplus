@@ -18,10 +18,12 @@
     reverse_proxy {$FRONTEND_HOST} 
 
     handle /api/* {
+        uri strip_prefix /api
         reverse_proxy {$BACKEND_HOST} 
     }
 
     handle /admin/* {
+        uri strip_prefix /admin
         reverse_proxy {$ADMIN_HOST}
     }
 }
