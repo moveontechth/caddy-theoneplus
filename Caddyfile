@@ -17,16 +17,8 @@
 
     reverse_proxy {$FRONTEND_HOST} 
 
-    handle_path /api {
-        reverse_proxy {$BACKEND_HOST} 
-    }
-
     handle_path /api/* {
         reverse_proxy {$BACKEND_HOST} 
-    }
-
-    handle /admin {
-        reverse_proxy {$ADMIN_HOST}
     }
 
     handle_path /admin/* {
