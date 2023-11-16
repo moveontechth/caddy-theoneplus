@@ -15,15 +15,10 @@
         format console 
     }
 
+    redir /api /api/
+    redir /api /admin/
+
     reverse_proxy {$FRONTEND_HOST} 
-
-    handle /api {
-        redir /api/
-    }
-
-    handle /admin {
-        redir /admin/
-    }
 
     handle_path /api/* {
         reverse_proxy {$BACKEND_HOST} 
