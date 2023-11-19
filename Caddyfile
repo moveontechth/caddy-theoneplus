@@ -16,12 +16,15 @@
     }
 
     redir /api /api/ permanent
-    # redir /admin /admin/ permanent
 
     reverse_proxy {$FRONTEND_HOST} 
 
     handle_path /api/* {
         reverse_proxy {$BACKEND_HOST} 
+    }
+
+    handle_path /* {
+        reverse_proxy {$ADMIN_HOST}
     }
 
     # handle_path /admin/* {
