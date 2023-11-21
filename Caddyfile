@@ -16,7 +16,6 @@
     }
 
     redir /api /api/ permanent
-    redir /admin /admin/ permanent
 
     reverse_proxy {$FRONTEND_HOST} 
 
